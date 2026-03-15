@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dyn6o7s2xgiq0"]
+
+[ext_resource type="Script" uid="uid://bqm65ylanv3e7" path="res://world/world.gd" id="1_6xmxd"]
+[ext_resource type="PackedScene" uid="uid://dfffifiyjcuvs" path="res://player/player.tscn" id="2_tcf2h"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6xmxd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcf2h"]
+
+[sub_resource type="Sky" id="Sky_4717r"]
+sky_material = SubResource("ProceduralSkyMaterial_tcf2h")
+
+[sub_resource type="Environment" id="Environment_h5o24"]
+background_mode = 2
+sky = SubResource("Sky_4717r")
+fog_enabled = true
+fog_mode = 1
+fog_sky_affect = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcf2h"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 0.03137255)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_tcf2h"]
+material = SubResource("StandardMaterial3D_tcf2h")
+size = Vector3(1.01, 1.01, 1.01)
+
+[node name="World" type="Node3D" unique_id=334796214]
+script = ExtResource("1_6xmxd")
+world_size = 32
+noise = SubResource("FastNoiseLite_6xmxd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1106657724]
+environment = SubResource("Environment_h5o24")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=706358147]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660253, 0, -0.8660253, 0.5, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=274732496 node_paths=PackedStringArray("world_in") instance=ExtResource("2_tcf2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 120, 16)
+world_in = NodePath("..")
+
+[node name="BlockHighlight" type="MeshInstance3D" parent="." unique_id=584581854]
+mesh = SubResource("BoxMesh_tcf2h")

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dfffifiyjcuvs"]
+
+[ext_resource type="Script" uid="uid://wmedq7oht18e" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://dbhxwtu4mylwt" path="res://world/block-atlas.png" id="2_rkbax"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=274732496]
+collision_layer = 0
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=795329854]
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=136532899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64382553, -0.35941568)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=647281472]
+target_position = Vector3(0, 0, -4)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=956092140]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="HUD" unique_id=204614853]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlockSprite" type="Control" parent="HUD" unique_id=1179837336]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/BlockSprite" unique_id=1874413208]
+scale = Vector2(2, 2)
+texture = ExtResource("2_rkbax")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

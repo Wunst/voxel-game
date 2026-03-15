@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1303xft8h07o"]
+
+[ext_resource type="Texture2D" uid="uid://dbhxwtu4mylwt" path="res://world/block-atlas.png" id="1_6q77a"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_6q77a")
+texture_filter = 0
