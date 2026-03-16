@@ -5,12 +5,14 @@ class_name World
 @export var world_size := 8
 
 ## World height in chunks.
-@export var world_height := 8
+@export var world_height := 16
 
 @export var noise: Noise
 
 @onready var player := $Player
 @onready var block_highlight := $BlockHighlight
+
+const PV_SPLINE := preload("res://world/spline/pv_spline.tres")
 
 var mesh_instance: MeshInstance3D
 
@@ -19,7 +21,7 @@ var _chunks: Dictionary[Vector3i, Chunk] = {}
 func _ready() -> void:
 	_generate_world()
 	
-	player.position = Vector3(world_size, world_height + 1, world_size) * Chunk.CHUNK_SIZE / 2
+	player.position = Vector3(world_size, world_height * 2, world_size) * Chunk.CHUNK_SIZE / 2
 
 func _generate_world() -> void:
 	_create_chunks()
@@ -61,7 +63,7 @@ func _create_chunks() -> void:
 func _terrain() -> void:
 	for x in range(world_size * Chunk.CHUNK_SIZE):
 		for z in range(world_size * Chunk.CHUNK_SIZE):
-			var stone_level := 20 + 16 * noise.get_noise_2d(x, z)
+			var stone_level := PV_SPLINE.sample(noise.get_noise_2d(x, z))
 			var grass_level := stone_level + 3 * absf(noise.get_noise_2d(x, z))
 			for y in range(stone_level):
 				set_block(Vector3i(x, y, z), Block.STONE)

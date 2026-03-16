@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dfffifiyjcuvs" path="res://player/player.tscn" id="2_tcf2h"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6xmxd"]
+frequency = 0.0045
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcf2h"]
 
@@ -41,7 +42,7 @@ shadow_enabled = true
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." unique_id=274732496 node_paths=PackedStringArray("world_in") instance=ExtResource("2_tcf2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 120, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 256, 0)
 world_in = NodePath("..")
 
 [node name="BlockHighlight" type="MeshInstance3D" parent="." unique_id=584581854]
