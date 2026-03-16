@@ -34,9 +34,9 @@ func _init(tile_index: int, opaque: bool = true) -> void:
 	
 	is_opaque = opaque
 
-func emit_mesh(st: SurfaceTool, block_pos: Vector3i, world_in: World) -> void:
+func emit_mesh(st: SurfaceTool, block_pos: Vector3i, chunk_in: Chunk) -> void:
 	for dir in FACES.keys():
-		var adjacent: Block = world_in.blocks.get(block_pos + dir)
+		var adjacent: Block = chunk_in.get_block(block_pos + dir)
 		if adjacent and adjacent.is_opaque:
 			# Face is obscured.
 			continue

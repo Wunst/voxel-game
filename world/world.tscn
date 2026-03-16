@@ -15,6 +15,7 @@ background_mode = 2
 sky = SubResource("Sky_4717r")
 fog_enabled = true
 fog_mode = 1
+fog_density = 1.0
 fog_sky_affect = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcf2h"]
@@ -29,7 +30,6 @@ size = Vector3(1.01, 1.01, 1.01)
 
 [node name="World" type="Node3D" unique_id=334796214]
 script = ExtResource("1_6xmxd")
-world_size = 32
 noise = SubResource("FastNoiseLite_6xmxd")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1106657724]
@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660253, 0, -0.8660253, 0.5, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=274732496 node_paths=PackedStringArray("world_in") instance=ExtResource("2_tcf2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 120, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 120, 0)
 world_in = NodePath("..")
 
 [node name="BlockHighlight" type="MeshInstance3D" parent="." unique_id=584581854]

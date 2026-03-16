@@ -51,11 +51,11 @@ func _physics_process(delta: float) -> void:
 	
 	if block_looking_at != Vector3i.MIN:
 		if Input.is_action_just_pressed("break"):
-			world_in.break_block(block_looking_at)
+			world_in.set_block(block_looking_at, null)
 		elif Input.is_action_just_pressed("place"):
 			# FIXME: prevent player from placing inside self
-			assert(not world_in.blocks.get(block_placing_to))
-			world_in.set_block(block_placing_to, blocks_can_place[block_to_place])
+			if not world_in.get_block(block_placing_to):
+				world_in.set_block(block_placing_to, blocks_can_place[block_to_place])
 	
 	# Add gravity.
 	velocity.y -= GRAVITY * delta
