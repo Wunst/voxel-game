@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbhxwtu4mylwt"
-path.s3tc="res://.godot/imported/block-atlas.png-52d8a5cd4ecd397e35c5d8fe32c48677.s3tc.ctex"
+uid="uid://b3hbanlx1c8ux"
+path="res://.godot/imported/block-atlas.png-52d8a5cd4ecd397e35c5d8fe32c48677.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/block-atlas.png"
-dest_files=["res://.godot/imported/block-atlas.png-52d8a5cd4ecd397e35c5d8fe32c48677.s3tc.ctex"]
+dest_files=["res://.godot/imported/block-atlas.png-52d8a5cd4ecd397e35c5d8fe32c48677.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

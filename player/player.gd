@@ -46,8 +46,9 @@ func _physics_process(delta: float) -> void:
 		block_to_place -= 1
 	block_to_place %= blocks_can_place.size()
 	
-	# TODO: find a less convoluted method of using UVs here
-	block_sprite.region_rect.position = blocks_can_place[block_to_place].uvs[0] * Block.ATLAS_SIZE * 16
+	var tile_index: int = blocks_can_place[block_to_place].properties["side_face_index"]
+	block_sprite.region_rect.position = Vector2(tile_index % Block.ATLAS_SIZE,
+		tile_index / Block.ATLAS_SIZE) * Block.TEXTURE_SIZE
 	
 	if block_looking_at != Vector3i.MIN:
 		if Input.is_action_just_pressed("break"):

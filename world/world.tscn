@@ -38,6 +38,7 @@ environment = SubResource("Environment_h5o24")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=706358147]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660253, 0, -0.8660253, 0.5, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_blend_splits = true
 
 [node name="Player" parent="." unique_id=274732496 node_paths=PackedStringArray("world_in") instance=ExtResource("2_tcf2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 120, 0)
